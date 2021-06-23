@@ -1,5 +1,5 @@
 {% set name = "dtool_overlay" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 
 package:
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/dtool-overlay/dtool-overlay-{{ version }}.tar.gz
-  sha256: 0d33df8cd45a786ce93b551a3f37be039e1ce13c04c278cfbbede88f4add2ba8
+  sha256: ac10507de5f529219a8e3307e21d6492ed1876ef06669783f934c9fbaa03dda7
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -39,7 +39,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE.rst
-  summary: 'dtool CLI utilities for working with per item metadata'
+  summary: dtool CLI utilities for working with per item metadata
   description: |
     dtool CLI utilities for working with per item metadata
   doc_url: https://github.com/jic-dtool/dtool-overlay
