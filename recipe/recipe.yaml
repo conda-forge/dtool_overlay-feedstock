@@ -1,0 +1,54 @@
+schema_version: 1
+
+context:
+  name: dtool_overlay
+  version: "0.3.1"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/dtool-overlay/dtool-overlay-${{ version }}.tar.gz
+  sha256: ac10507de5f529219a8e3307e21d6492ed1876ef06669783f934c9fbaa03dda7
+
+build:
+  number: 2
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}
+    - setuptools
+  run:
+    - click
+    - dtool_cli
+    - dtoolcore
+    - parse
+    - python >=${{ python_min }}
+
+tests:
+  - python:
+      imports:
+        - dtool_overlay
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  license: MIT
+  license_file: LICENSE.rst
+  summary: dtool CLI utilities for working with per item metadata
+  description: |
+    dtool CLI utilities for working with per item metadata
+  homepage: https://github.com/jic-dtool/dtool-overlay
+  repository: https://github.com/jic-dtool/dtool-overlay
+  documentation: https://github.com/jic-dtool/dtool-overlay
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
+    - tjelvar-olsson
