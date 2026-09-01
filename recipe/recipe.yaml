@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: dtool_overlay
-  version: "0.3.1"
+  version: 0.3.1
 
 package:
   name: ${{ name|lower }}
@@ -20,7 +20,7 @@ build:
 requirements:
   host:
     - pip
-    - python ${{ python_min }}
+    - python ${{ python_min }}.*
     - setuptools
   run:
     - click
@@ -40,10 +40,9 @@ tests:
 
 about:
   license: MIT
-  license_file: LICENSE.rst
+  license_file: LICENSE
   summary: dtool CLI utilities for working with per item metadata
-  description: |
-    dtool CLI utilities for working with per item metadata
+  description: dtool CLI utilities for working with per item metadata
   homepage: https://github.com/jic-dtool/dtool-overlay
   repository: https://github.com/jic-dtool/dtool-overlay
   documentation: https://github.com/jic-dtool/dtool-overlay
