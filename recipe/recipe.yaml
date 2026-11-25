@@ -2,18 +2,18 @@ schema_version: 1
 
 context:
   name: dtool_overlay
-  version: 0.3.1
+  version: "0.3.2"
 
 package:
   name: ${{ name|lower }}
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/dtool-overlay/dtool-overlay-${{ version }}.tar.gz
-  sha256: ac10507de5f529219a8e3307e21d6492ed1876ef06669783f934c9fbaa03dda7
+  url: https://pypi.org/packages/source/${{ name[0] }}/dtool-overlay/${{ name }}-${{ version }}.tar.gz
+  sha256: 26d26049e2ac4fc340459892ed0d5f75a6a7817b3daea95dada49ac01aeab34e
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv
 
@@ -21,7 +21,8 @@ requirements:
   host:
     - pip
     - python ${{ python_min }}.*
-    - setuptools
+    - hatchling
+    - hatch-vcs
   run:
     - click
     - dtool_cli
